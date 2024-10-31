@@ -18,6 +18,7 @@ const BookForm = () => {
 
     const randomBookWithID = {
       ...randomBook,
+      isFavorite: false,
       id: uuidv4(),
     }
 
@@ -31,6 +32,7 @@ const BookForm = () => {
       const book = {
         title: title,
         author: author,
+        isFavorite: false,
         id: uuidv4(),
       }
 
@@ -44,7 +46,7 @@ const BookForm = () => {
   return (
     <div className="app-block book-form">
       <h2>Add New Book</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete={'off'}>
         <div>
           <label htmlFor="title">Title</label>
           <input
