@@ -7,7 +7,6 @@ import './BookForm.css'
 
 const BookForm = () => {
   // const [formData, setFormData] = useState({})
-
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const dispatch = useDispatch()
