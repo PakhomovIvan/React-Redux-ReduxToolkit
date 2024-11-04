@@ -61,6 +61,11 @@ const BookList = () => {
   return (
     <div className="app-block book-list">
       <h2>Book List</h2>
+      {!!books.length && (
+        <button type="button" onClick={() => handleDeleteAllBook()}>
+          Reset
+        </button>
+      )}
       {books.length === 0 ? (
         <p>No books availible</p>
       ) : (
@@ -90,11 +95,6 @@ const BookList = () => {
             ))
           )}
         </ul>
-      )}
-      {!!books.length && (
-        <button type="button" onClick={() => handleDeleteAllBook()}>
-          Reset
-        </button>
       )}
     </div>
   )
