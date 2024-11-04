@@ -1,13 +1,23 @@
 import axios from 'axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import createBookWithID from '../../utils/createBookWithID'
+import { act } from 'react'
+import { setError } from './errorSlices'
 
 const initialState = []
 
-export const fetchBook = createAsyncThunk('books/fetchBook', async () => {
-  const res = await axios.get('http://localhost:40200/random-book')
-  return res.data
-})
+export const fetchBook = createAsyncThunk(
+  'books/fetchBook',
+  async (url, thunkAPI) => {
+    try {
+      const res = await axios.get(url)
+      return res.data
+    } catch (error) {
+      thunkAPI.dispatch(setError(error.message))
+      throw Error
+    }
+  }
+)
 
 const booksSlice = createSlice({
   name: 'books',

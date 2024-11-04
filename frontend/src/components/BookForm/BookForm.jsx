@@ -31,9 +31,8 @@ const BookForm = () => {
   }
 
   const handleAddRandomBookAPI = () => {
-    dispatch(fetchBook())
+    dispatch(fetchBook('http://localhost:4000/random-book'))
   }
-
   // const handleAddRandomBookAPI = async () => {
   //   try {
   //     const res = await axios.get('http://localhost:4000/random-book')
@@ -44,7 +43,6 @@ const BookForm = () => {
   //     console.log('error fetching random book', error)
   //   }
   // }
-
   return (
     <div className="app-block book-form">
       <h2>Add New Book</h2>
